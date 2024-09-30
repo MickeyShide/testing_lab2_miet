@@ -19,6 +19,7 @@ public class CalculatorTest {
         Mockito.when(view.getOperator()).thenReturn('+');
         Mockito.when(view.getOperand2()).thenReturn(3.0);
         assertEquals(8.0, controller.processInput());
+        assertEquals(8.0, model.getResult());
     }
 
     @Test
@@ -27,6 +28,7 @@ public class CalculatorTest {
         Mockito.when(view.getOperator()).thenReturn('-');
         Mockito.when(view.getOperand2()).thenReturn(3.0);
         assertEquals(2.0, controller.processInput());
+        assertEquals(2.0, model.getResult());
     }
 
     @Test
@@ -35,6 +37,7 @@ public class CalculatorTest {
         Mockito.when(view.getOperator()).thenReturn('*');
         Mockito.when(view.getOperand2()).thenReturn(3.0);
         assertEquals(15.0, controller.processInput());
+        assertEquals(15.0, model.getResult());
     }
 
     @Test
@@ -43,6 +46,7 @@ public class CalculatorTest {
         Mockito.when(view.getOperator()).thenReturn('/');
         Mockito.when(view.getOperand2()).thenReturn(2.0);
         assertEquals(3.0, controller.processInput());
+        assertEquals(3.0, model.getResult());
     }
 
     @Test
@@ -67,6 +71,7 @@ public class CalculatorTest {
         Mockito.when(view.getOperator()).thenReturn('+');
         Mockito.when(view.getOperand2()).thenReturn(1e100);
         assertEquals(2e100, controller.processInput());
+        assertEquals(2e100, model.getResult());
     }
 
     @Test
@@ -75,6 +80,7 @@ public class CalculatorTest {
         Mockito.when(view.getOperator()).thenReturn('*');
         Mockito.when(view.getOperand2()).thenReturn(1e-100);
         assertEquals(1e-200, controller.processInput());
+        assertEquals(1e-200, model.getResult());
     }
 
     @Test
@@ -83,5 +89,6 @@ public class CalculatorTest {
         Mockito.when(view.getOperator()).thenReturn('-');
         Mockito.when(view.getOperand2()).thenReturn(0.0);
         assertEquals(0.0, controller.processInput());
+        assertEquals(0.0, model.getResult());
     }
 }
